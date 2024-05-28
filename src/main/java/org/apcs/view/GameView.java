@@ -8,7 +8,8 @@ import java.util.*;
 
 
 /**
- * Main view class. Interacts with Main, GameModel, and GameController
+ * Main view class.
+ * It interacts with Main, GameModel, and GameController
  * @author Bolang Zhu
  */
 public class GameView
@@ -25,7 +26,9 @@ public class GameView
 
 
     /**
-     * constructor of GameView. renders GUI based on data from model
+     * Constructor of GameView.
+     * Initializes status from model.
+     * Then calls initGUI()
      * @param model - the game's GameModel
      */
     public GameView(GameModel model)
@@ -48,10 +51,10 @@ public class GameView
         // sets up game panel
         panel = new GamePanel();
 
-        // sets up message label
-        label = new MessageLabel();
-        panel.add(new JLabel(" ")); // spacing
-        panel.add(label);
+//        // sets up message label
+//        label = new MessageLabel();
+//        panel.add(new JLabel(" ")); // spacing
+//        panel.add(label);
 
         // sets up game board
         board = new GameBoard();

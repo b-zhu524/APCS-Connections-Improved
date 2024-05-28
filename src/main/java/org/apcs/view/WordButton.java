@@ -12,8 +12,9 @@ import javax.swing.JButton;
 public class WordButton extends JButton
 {
     /**
-     * constructor for the WordButton class
-     * initializes the text of the button and attributes to change its color. It is initially unclicked
+     * Constructor for the WordButton class.
+     * Initializes the text of the button and attributes to change its color.
+     * The font is set black and the color is set unclicked.
      * @param text - the text of the WordButton
      */
     public WordButton(String text)
@@ -29,7 +30,7 @@ public class WordButton extends JButton
     }
 
     /**
-     * changes the color and font of the button to look clicked
+     * Changes the color and font of the button to look clicked
      */
     public void clickButton()
     {
@@ -38,7 +39,7 @@ public class WordButton extends JButton
     }
 
     /**
-     * changes the color and font of the button to look unclicked
+     * Changes the color and font of the button to look unclicked.
      */
     public void unclickButton()
     {

@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 
 /**
- * represents the buttons layout using a JPanel for the bottom panel (container for submit, shuffle, deselect all)
+ * Represents the buttons layout using a JPanel for the bottom panel (container for submit, shuffle, deselect all)
  * @author Bolang Zhu
  */
 public class BottomPanel extends JPanel
@@ -16,9 +16,9 @@ public class BottomPanel extends JPanel
     private final BottomButton newGame;
 
     /**
-     * initializes the buttons shuffle, deselectAll, submit, and newGame
-     * initially makes submit and deselectAll unavailable and hides new game
-     * adds a BoxLayout to the panel
+     * Initializes the buttons shuffle, deselectAll, submit, and newGame
+     * Initially makes submit and deselectAll unavailable and hides new game
+     * Adds a BoxLayout to the panel
      */
     public BottomPanel()
     {
@@ -40,7 +40,7 @@ public class BottomPanel extends JPanel
     // GETTERS
 
     /**
-     * getter method for the BottomButton shuffle
+     * Getter method for the BottomButton shuffle
      * @return shuffle - BottomButton that shuffles the words
      */
     public BottomButton getShuffle()
@@ -49,7 +49,7 @@ public class BottomPanel extends JPanel
     }
 
     /**
-     * getter method for BottomButton deselectAll
+     * Getter method for BottomButton deselectAll
      * @return deselectAll - BottomButton that deselects all words
      */
     public BottomButton getDeselectAll()
@@ -58,7 +58,7 @@ public class BottomPanel extends JPanel
     }
 
     /**
-     * getter method for BottomButton submit
+     * Getter method for BottomButton submit
      * @return submit - BottomButton that submits four words
      */
     public BottomButton getSubmit()
@@ -68,7 +68,7 @@ public class BottomPanel extends JPanel
 
 
     /**
-     * removes every button in bottom panel and adds buttons accordingly
+     * Removes every button in bottom panel and adds buttons accordingly
      * if it is the end of the game, the only thing added is the newGame button
      * otherwise, shuffle, deselect all, and submit are added to the BottomPanel
      * @param endGame - if it is the end of the game, or if the player can continue playing
@@ -90,7 +90,7 @@ public class BottomPanel extends JPanel
     }
 
     /**
-     * adds a button to the bottom panel
+     * Adds a button to the bottom panel
      * @param button - BottomButton to be added
      */
     private void addButton(BottomButton button)
@@ -99,7 +99,7 @@ public class BottomPanel extends JPanel
     }
 
     /**
-     * adds an ActionListener to the submit button
+     * Adds an ActionListener to the submit button
      * @param listener - ActionListener for the submit button
      */
     public void setSubmitActionListener(ActionListener listener)
@@ -108,7 +108,7 @@ public class BottomPanel extends JPanel
     }
 
     /**
-     * adds an ActionListener to the shuffle button
+     * Adds an ActionListener to the shuffle button
      * @param listener - ActionListener for the shuffle button
      */
     public void setShuffleActionListener(ActionListener listener)
@@ -117,7 +117,7 @@ public class BottomPanel extends JPanel
     }
 
     /**
-     * adds an ActionListener to the deselect all button
+     * Adds an ActionListener to the deselect all button
      * @param listener - ActionListener for the deselect all button
      */
     public void setDeselectAllActionListener(ActionListener listener)
@@ -126,7 +126,7 @@ public class BottomPanel extends JPanel
     }
 
     /**
-     * adds an action listener for the new game button
+     * Adds an action listener for the new game button
      * @param listener - ActionListener for the new game button
      */
     public void setNewGameActionListener(ActionListener listener)

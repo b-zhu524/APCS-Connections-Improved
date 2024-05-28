@@ -2,7 +2,7 @@ package org.apcs.service;
 
 
 /**
- * contains the API key
+ * Contains the API key
  */
 public class APIKey
 {

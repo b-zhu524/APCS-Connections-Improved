@@ -8,6 +8,7 @@ import java.util.*;
 
 /**
  * represents the action listener for the word buttons
+ * @author Bolang Zhu
  */
 public class WordButtonActionListener implements ActionListener
 {

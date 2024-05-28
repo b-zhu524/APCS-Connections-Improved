@@ -9,6 +9,7 @@ import org.apcs.service.*;
 
 /**
  * ActionListener for NewGame button
+ * @author Bolang Zhu
  */
 public class NewGameActionListener implements ActionListener
 {

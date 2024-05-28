@@ -7,7 +7,8 @@ import org.apcs.service.*;
 
 
 /**
- * Main class for the game.
+ * This is a clone of the Connections game from New York Times.
+ * It is run from the desktop and uses ChatGPT to generate words and categories.
  */
 public class Main
 {
