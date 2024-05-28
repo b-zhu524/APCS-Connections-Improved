@@ -3,15 +3,15 @@ package org.apcs.view;
 import javax.swing.*;
 
 /**
- * represents a panel that displays the number of mistakes
+ * Extension of JPanel. It displays the number of mistakes represented by dots.
  */
 public class MistakesPanel extends JPanel
 {
     private int buttonCnt = 4;
 
     /**
-     * constructor for MistakesPanel.
-     * renders the panel with four mistakes left
+     * Constructor for MistakesPanel.
+     * Renders the panel with initially four mistakes left.
      */
     public MistakesPanel()
     {
@@ -21,7 +21,7 @@ public class MistakesPanel extends JPanel
     }
 
     /**
-     * sets buttonCnt and renders the panel with the new information
+     * It sets buttonCnt and renders the panel with the new information.
      * @param cnt - number of mistakes left
      */
     public void setCnt(int cnt)
@@ -32,7 +32,7 @@ public class MistakesPanel extends JPanel
 
 
     /**
-     * removes all text on MistakesPanel and renders the amount of dots in buttonCnt
+     * It removes all text on MistakesPanel and renders the amount of dots in buttonCnt.
      */
     public void render()
     {

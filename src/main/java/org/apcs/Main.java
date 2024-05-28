@@ -13,8 +13,6 @@ import org.apcs.service.*;
  * The player has four tries to categorize the words.
  * Unlike New York Times, this game has a New Game feature, where the player gets to play an unlimited number of times.
  * Java Swing is used to implement the GUI.
- *
- * @author Bolang Zhu
  */
 public class Main
 {
