@@ -1,20 +1,18 @@
 package org.apcs.view;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-
 
 /**
- *
+ * represents a panel that displays the number of mistakes
  */
 public class MistakesPanel extends JPanel
 {
     private int buttonCnt = 4;
+
+    /**
+     * constructor for MistakesPanel.
+     * renders the panel with four mistakes left
+     */
     public MistakesPanel()
     {
         super();
@@ -22,6 +20,10 @@ public class MistakesPanel extends JPanel
         render();
     }
 
+    /**
+     * sets buttonCnt and renders the panel with the new information
+     * @param cnt - number of mistakes left
+     */
     public void setCnt(int cnt)
     {
         buttonCnt = cnt;
@@ -29,33 +31,19 @@ public class MistakesPanel extends JPanel
     }
 
 
-    // BUG
-    private void render()
+    /**
+     * removes all text on MistakesPanel and renders the amount of dots in buttonCnt
+     */
+    public void render()
     {
         this.removeAll();
-        this.add(new JLabel("Mistakes remaining: "));
+       StringBuilder blackDot = new StringBuilder("<html><style>p {font-size: 15}</style><body><p>Mistakes remaining: ");
 
-        BufferedImage blackDot;
+        String bullet = "&#x25cf;"; // small - find bigger black circle
+        blackDot.append(bullet.repeat(buttonCnt));
 
-        try
-        {
-            URL dot = this.getClass().getClassLoader().getResource("blackdot.png");
-            blackDot = ImageIO.read(dot);
-        }
-        catch (IOException e)
-        {
-            blackDot = null;
-        }
-
-        if (blackDot != null)
-        {
-            Image finalDot = blackDot.getScaledInstance(20, 20, Image.SCALE_SMOOTH);
-
-            for ( int i=0; i<buttonCnt; i++ )
-            {
-                ImageIcon icon = new ImageIcon(finalDot);
-                this.add(new JLabel(icon));
-            }
-        }
+        blackDot.append("</p></body></html>");
+        JLabel dotLabel = new JLabel(blackDot.toString(), SwingConstants.CENTER);
+        this.add(dotLabel);
     }
 }

@@ -1,6 +1,9 @@
 package org.apcs.view;
 
 import org.apcs.model.*;
+
+import javax.swing.*;
+import java.awt.event.ActionListener;
 import java.util.*;
 
 
@@ -11,73 +14,159 @@ import java.util.*;
 public class GameView
 {
     GameModel model;
+    List<String> words;
 
+    GameFrame frame;
+    GamePanel panel;
+    GameBoard board;
+    BottomPanel bottom;
+    MessageLabel label;
+    MistakesPanel mistakes;
+
+
+    /**
+     * constructor of GameView. renders GUI based on data from model
+     * @param model - the game's GameModel
+     */
     public GameView(GameModel model)
     {
         this.model = model;
         GameStatus status = model.getGameStatus();
-        List<String> words = status.getRemainingWords();    // ArrayList of 16 words
+        words = status.getGameBoardData().getRemainingWords();    // ArrayList of 16 words
 
-        initGUI(words);
+        initGUI();
     }
-    public GameView()
+
+    /**
+     * Initializes the GUI. Adds each component layered into a GameFrame
+     */
+    private void initGUI()
     {
+        // sets up game frame
+        frame = new GameFrame();
 
-    }
-    public void initGUI(List<String> words)
-    {
-        GameFrame frame = new GameFrame();
-        GamePanel panel = new GamePanel();
+        // sets up game panel
+        panel = new GamePanel();
 
-        GameBoard board = new GameBoard();
+        // sets up message label
+        label = new MessageLabel();
+        panel.add(new JLabel(" ")); // spacing
+        panel.add(label);
 
-        GameRow row1 = new GameRow();
-        setUpRow(row1, 1, words);
-
-        GameRow row2 = new GameRow();
-        setUpRow(row2, 2, words);
-
-        GameRow row3 = new GameRow();
-        setUpRow(row3, 3, words);
-
-        GameRow row4 = new GameRow();
-        setUpRow(row4, 4, words);
-
-        // SETS UP 4x4 GRID OF WORDS
-        board.add(row1);
-        board.add(row2);
-        board.add(row3);
-        board.add(row4);
+        // sets up game board
+        board = new GameBoard();
+        board.updateBoard(model.getGameStatus());
         panel.add(board);
 
-        // SETS UP MISTAKE LABEL
-        MistakesPanel mistakes = new MistakesPanel();
+        // sets up mistake label
+        mistakes = new MistakesPanel();
         panel.add(mistakes);
 
-        // SETS UP BOTTOM PANEL
-        BottomPanel bottom = new BottomPanel();
+        // sets up bottom panel
+        bottom = new BottomPanel();
         panel.add(bottom);
 
         frame.add(panel);
         frame.setVisible(true);
     }
 
-    private void setUpRow(GameRow row, int rowNum, List<String> words)
+    /**
+     * adds the game's ActionListener to WordButtons
+     * @param listener - ActionListener for WordButton
+     */
+    public void addWordButtonActionListener(ActionListener listener)
     {
-        for ( int i=(rowNum-1)*4; i<rowNum*4; i++ )
-        {
-            WordButton word = new WordButton(words.get(i));
-            row.addWordButton(word);
-        }
+        getGameBoard().addWordButtonActionListeners(listener);
     }
 
-    public static void main(String[] args) {
-        ArrayList<String> l = new ArrayList<>();
-        for ( int i=0; i<16; i++ ){
-            l.add("text");
-        }
 
-        GameView gv = new GameView();
-        gv.initGUI(l);
+    /**
+     * adds the game's ActionListener to DeselectAll
+     * @param listener - ActionListener for DeselectAll button
+     */
+    public void addDeselectAllActionListener(ActionListener listener)
+    {
+        getBottomPanel().setDeselectAllActionListener(listener);
+    }
+
+    /**
+     * adds the game's ActionListener to Shuffle button
+     * @param listener - ActionListener for Shuffle button
+     */
+    public void addShuffleActionListener(ActionListener listener)
+    {
+        getBottomPanel().setShuffleActionListener(listener);
+    }
+
+    /**
+     * adds the game's ActionListener to Submit button
+     * @param listener - ActionListener for Submit button
+     */
+    public void addSubmitActionListener(ActionListener listener)
+    {
+        getBottomPanel().setSubmitActionListener(listener);
+    }
+
+    /**
+     * adds the game's ActionListener for NewGame button
+     * @param listener - ActionListener for the NewGame button
+     */
+    public void addNewGameActionListener(ActionListener listener)
+    {
+        getBottomPanel().setNewGameActionListener(listener);
+    }
+
+    /**
+     * getter method for GameFrame
+     * @return frame - the game's GameFrame
+     */
+    public GameFrame getGameFrame()
+    {
+        return frame;
+    }
+
+    /**
+     * getter method for GamePanel
+     * @return panel - the game's GamePanel
+     */
+    public GamePanel getGamePanel()
+    {
+        return panel;
+    }
+
+    /**
+     * getter method for the game's GameBoard
+     * @return board - the GameBoard for the game
+     */
+    public GameBoard getGameBoard()
+    {
+        return board;
+    }
+
+    /**
+     * getter method for the game's MessageLabel
+     * @return label - the MessageLabel for the game
+     */
+    public MessageLabel getMessageLabel()
+    {
+        return label;
+    }
+
+    /**
+     * getter method for the game's BottomPanel.
+     * @return bottom - the BottomPanel for the game
+     */
+    public BottomPanel getBottomPanel()
+    {
+        return bottom;
+    }
+
+    /**
+     * getter method for the game's MistakesPanel
+     * @return mistakes - the MistakesPanel for the game
+     */
+    public MistakesPanel getMistakesPanel()
+    {
+        return mistakes;
     }
 }

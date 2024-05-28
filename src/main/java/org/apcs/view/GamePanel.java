@@ -4,29 +4,17 @@ package org.apcs.view;
 import javax.swing.*;
 
 /**
- * Panel with boxlayout to layer the GameBoard, MistakesPanel, and BottomPanel
+ * represents panel to include the GameBoard, MistakesPanel, and BottomPanel
  */
 public class GamePanel extends JPanel
 {
+    /**
+     * constructor for the GamePanel class
+     * sets up a BoxLayout to stack components vertically on top of one another
+     */
     public GamePanel()
     {
         super();
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
-
-    public void addGameBoard(GameBoard board)
-    {
-        this.add(board);
-    }
-
-    public void addMistakesPanel(MistakesPanel panel)
-    {
-        this.add(panel);
-    }
-
-    public void addBottomPanel(BottomPanel panel)
-    {
-        this.add(panel);
-    }
-
 }

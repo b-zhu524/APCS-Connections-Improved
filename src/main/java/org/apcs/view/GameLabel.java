@@ -3,52 +3,50 @@ package org.apcs.view;
 import org.apcs.model.*;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 
 /**
- * Methods and info for a SOLVED category. It takes up a row of space.
+ * Methods and info for a solved category. It takes up a row of space of the GameBoard.
  * @author Bolang Zhu
  */
 public class GameLabel extends JLabel
 {
-    private Category category;
+    private final Category category;
 
+    /**
+     * initializes the text to be the category name followed by the member words in the category
+     * sets the color of label according to the category's difficulty
+     * @param cat - the Category of the solved words
+     */
     public GameLabel(Category cat)
     {
-        super(cat.getCatInfo(), JLabel.CENTER);
+        super("", JLabel.CENTER);
         category = cat;
-        setFont();
-        setRoundEdges();
+
+        String text = "<html><style>h2 {text-align: center;} p{text-align: center;}</style><head><h2>" +
+                cat.getCatName().toUpperCase() + "</h2><head><body><p>" + cat.getCatInfo().toUpperCase()
+                + "</p></body></html>";
+        super.setText(text);
+
+        unflipLabel();
     }
 
-    public GameLabel(String text, int horizontalAlignment)
+    /**
+     * sets the color of the label
+     */
+    private void unflipLabel()
     {
-        super(text, horizontalAlignment);
-    }
-
-
-    private void setFont()
-    {
-        super.setFont(new Font("Arial", Font.BOLD, 14));
-        super.setForeground(Color.BLACK);
-    }
-
-    public void unflipLabel()
-    {
-        super.setBackground(getBackgroundColor(category));
+        super.setBackground(getBackgroundColor());
         super.setOpaque(true);
     }
 
-
-    public void setRoundEdges()
+    /**
+     * sets the color of the label according to the category's difficulty
+     * @return color - the color of the label
+     */
+    private Color getBackgroundColor()
     {
-        super.setBorder(new LineBorder(Color.WHITE, 3));
-    }
-
-    public Color getBackgroundColor(Category cat)
-    {
-        int difficulty = cat.getDifficulty();
+        int difficulty = category.getDifficulty();
         if ( difficulty == 0 )
         {
             return new Color(245, 224, 126); // YELLOW from NYTIMES

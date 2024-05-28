@@ -1,10 +1,8 @@
 package org.apcs.model;
 
-import java.util.*;
-
 
 /**
- *
+ * represents a category of words
  */
 public class Category
 {
@@ -12,21 +10,11 @@ public class Category
     private String catName;
     private int difficulty;
 
-
     /**
-     * This constructor is used only for comparing words, where the catName and difficulty do not matter.
-     * @param words
-     */
-    public Category(String[] words)
-    {
-        memberWords = words;
-    }
-
-    /**
-     *
-     * @param words
-     * @param catName
-     * @param difficulty
+     * constructor for a Category class.
+     * @param words - four words in the category
+     * @param catName - name of the category
+     * @param difficulty - integer between 0 - 3 inclusive (0 being easy, and 3 being hardest)
      */
     public Category(String[] words, String catName, int difficulty)
     {
@@ -37,8 +25,8 @@ public class Category
 
 
     /**
-     *
-     * @return
+     * getter method for memberWords
+     * @return memberWords - words in the category
      */
     public String[] getWords()
     {
@@ -47,8 +35,8 @@ public class Category
 
 
     /**
-     *
-     * @return
+     * getter method for catName
+     * @return catName - the name of the category
      */
     public String getCatName()
     {
@@ -57,7 +45,7 @@ public class Category
 
 
     /**
-     *
+     * gives the words to output to a GameLabel
      * @return member words in string format "{word1}, {word2}, {word3}, {word4}"
      */
     public String getCatInfo()
@@ -80,19 +68,11 @@ public class Category
 
 
     /**
-     *
-     * @return
+     * getter method for attribute, "difficulty"
+     * @return - difficulty
      */
     public int getDifficulty()
     {
         return difficulty;
-    }
-
-    /**
-     * This method sorts memberWords in alphabetical order.
-     */
-    public void sortWords()
-    {
-        Arrays.sort(memberWords);
     }
 }

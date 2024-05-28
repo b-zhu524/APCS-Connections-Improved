@@ -1,122 +1,138 @@
 package org.apcs.model;
 
-import org.apcs.view.MistakesPanel;
 
 import java.util.*;
 
+/**
+ * represents the information that changes throughout each game
+ */
 public class GameStatus
 {
-    private final int COL = 4;
     private Set<String> clickedWords;
-    private List<String> remainingWords;    // Initially 16 Words
-
-    private int numRowsSolved;
+    private GameBoardData gameBoardData;
     private int numMistakes;
-    private ArrayList<ArrayList<Category>> mistakesRecord;
+    private ArrayList<ArrayList<Category>> turnsRecord;
+    private GameModel model;
 
 
-    public GameStatus(List<String> words)
+    /**
+     *
+     * @param model - the game's GameModel
+     * @param words - the 16 words for the game
+     */
+    public GameStatus(GameModel model, List<String> words)
     {
+        this.model = model;
         clickedWords = new HashSet<>();
-        numRowsSolved = 0;
         numMistakes = 0;
+        turnsRecord = new ArrayList<>();
 
-        mistakesRecord = new ArrayList<>();
+        gameBoardData = new GameBoardData(new ArrayList<>(), words);
     }
 
-    // GETTERS
-
-    public int getNumCols()
+    /**
+     * getter method for GameBoardData
+     * @return gameBoardData - contains the game's information for the GameBoard to display
+     */
+   public GameBoardData getGameBoardData()
     {
-        return COL;
+        return gameBoardData;
     }
 
+    /**
+     * getter method for clickedWords
+     * @return clickedWords - the set of the words that are currently clicked
+     */
     public Set<String> getClickedWords()
     {
         return clickedWords;
     }
 
-    public int getNumClicked()
-    {
-        return clickedWords.size();
-    }
 
-    public List<String> getRemainingWords()
-    {
-        return remainingWords;
-    }
-
-    public int getNumRowsSolved()
-    {
-        return numRowsSolved;
-    }
-
+    /**
+     * getter method for numMistakes
+     * @return numMistakes - the current number of mistakes in the game
+     */
     public int getNumMistakes()
     {
         return numMistakes;
     }
 
-    public ArrayList<ArrayList<Category>> getMistakesRecord()
+    /**
+     * getter method for mistakesRecord
+     * @return turnsRecord - the arraylist for all submissions in a game by four category classes in each entry
+     * each category represents the category a word belongs to
+     * meant to be used at the end of the game so the user can ses their turns
+     */
+    public ArrayList<ArrayList<Category>> getTurnsRecord()
     {
-        return mistakesRecord;
+        return turnsRecord;
     }
 
-    public String getWord(int row, int col)
+
+    /**
+     * Gets category of the clicked words members. This is ONLY called when each word in clicked belongs to the same category.
+     * @return category - category of words
+     */
+    public Category getClickedCat()
     {
-        int index = row * COL + col - numRowsSolved * COL;
-        if ( row < numRowsSolved || index < 0 || index >= remainingWords.size() )
+        for (String word : clickedWords)
         {
-            // exception
-            return null;
+            return model.getSolution().getAnswer().get(word);
         }
 
-        return remainingWords.get(index);
+        // never reached
+        return null;
     }
 
 
-    // SETTERS
-    public void updateTurn(ArrayList<Category> mistakeCat)
+    /**
+     * called when submit is clicked
+     * goes through clicked words and adds an entry to TurnsRecord
+     */
+    public void updateTurn()
     {
-        mistakesRecord.add(mistakeCat);
+        ArrayList<Category> toAdd = new ArrayList<>();
+        for (String word : clickedWords)
+        {
+            toAdd.add(model.getSolution().getAnswer().get(word));
+        }
+        turnsRecord.add(toAdd);
     }
 
+    /**
+     * increases the number of mistakes by one
+     */
     public void updateMistakes()
     {
         numMistakes++;
     }
 
+
+    /**
+     * adds a clicked word
+     * @param word - word to be added
+     */
     public void addClicked(String word)
     {
         clickedWords.add(word);
     }
 
+    /**
+     * removes a clicked word. represents unclicking a word
+     * @param word - word to be removed
+     */
     public void removeClicked(String word)
     {
         clickedWords.remove(word);
     }
 
+    /**
+     * removes (unclicks) all clicked words
+     */
     public void removeAllClicked()
     {
         clickedWords.clear();
     }
 
-
-    /**
-     * This is called only when the user input is correct.
-     * @param toRemove
-     */
-    public void removeRemainingWords(Set<String> toRemove)
-    {
-        List<String> removedWords = new ArrayList<>();
-
-        for ( String word : remainingWords )
-        {
-            if ( !toRemove.contains(word) )
-            {
-                removedWords.add(word);
-            }
-        }
-
-        remainingWords = removedWords;
-    }
 }

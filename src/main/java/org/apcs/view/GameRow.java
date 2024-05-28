@@ -8,7 +8,9 @@ public class GameRow extends JPanel
     public GameRow()
     {
         super();
-        this.setLayout(new GridLayout(1, 4));
+        GridLayout layout = new GridLayout(1, 4);
+        layout.setHgap(10); // Creates vertical gap in between words
+        this.setLayout(layout);
     }
 
     private void setLayout(int rows, int cols)
