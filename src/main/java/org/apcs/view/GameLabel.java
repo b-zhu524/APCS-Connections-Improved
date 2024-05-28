@@ -6,7 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Methods and info for a solved category. It takes up a row of space of the GameBoard.
+ * Extension of JLabel. A GameLabel is displayed when a category is solved.
+ * Each category has a unique color, name, and words to be displayed once solved.
  * @author Bolang Zhu
  */
 public class GameLabel extends JLabel
@@ -14,8 +15,9 @@ public class GameLabel extends JLabel
     private final Category category;
 
     /**
-     * initializes the text to be the category name followed by the member words in the category
-     * sets the color of label according to the category's difficulty
+     * Constructor for GameLabel.
+     * It initializes the text to be the category name followed by the member words in the category.
+     * It sets the color of label according to the category's difficulty.
      * @param cat - the Category of the solved words
      */
     public GameLabel(Category cat)
@@ -32,7 +34,7 @@ public class GameLabel extends JLabel
     }
 
     /**
-     * sets the color of the label
+     * It sets the label to its color and allows it to be displayed.
      */
     private void unflipLabel()
     {
@@ -41,7 +43,11 @@ public class GameLabel extends JLabel
     }
 
     /**
-     * sets the color of the label according to the category's difficulty
+     * It gets the color of the label according to the category's difficulty.
+     * Difficulty 0 : YELLOW.
+     * Difficulty 1 : GREEN.
+     * Difficulty 2 : BLUE.
+     * Difficulty 4 : PURPLE.
      * @return color - the color of the label
      */
     private Color getBackgroundColor()

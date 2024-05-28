@@ -9,15 +9,19 @@ import java.awt.event.ActionListener;
 
 
 /**
- * represents the ActionListener for shuffle button
+ * An implementation of ActionListener.
+ * When shuffle is clicked, it shuffles the words in GameBoardData and re-renders GameBoard accordingly.
  * @author Bolang Zhu
  */
 public class ShuffleActionListener implements ActionListener
 {
+    /**
+     * The controller for the game.
+     */
     GameController controller;
 
     /**
-     * allows the actionListener to access methods from Model and View
+     * Constructor for ShuffleActionListener.
      * @param controller - the game's controller
      */
     public ShuffleActionListener(GameController controller)
@@ -26,8 +30,10 @@ public class ShuffleActionListener implements ActionListener
     }
 
     /**
-     * this is called when the shuffle button is clicked
-     * it shuffles the remaining words in GameBoardData and re-renders the GUI
+     * This is the implementation of ActionListener's actionPerformed method.
+     * This is called when the shuffle button is clicked.
+     * It shuffles the remaining words in GameBoardData, and re-renders the GUI accordingly.
+     * It also re-adds the action listener for the WordButton class.
      * @param e - the event on the shuffle button to be processed
      */
     @Override

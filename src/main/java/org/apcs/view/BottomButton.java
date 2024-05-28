@@ -5,7 +5,8 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Methods and info for the buttons below the GameGrid. These include submit, shuffle, and de-select all.
+ * Extension of JButton. Submit, deselect all, shuffle, and new game buttons are all instances of this.
+ * It changes the spacing of a JButton and makes it non-focusable.
  *
  * @author Bolang Zhu
  */
@@ -14,9 +15,9 @@ public class BottomButton extends JButton
     private String text;
 
     /**
-     * constructor for BottomButton
-     * sets the margin to be 10 pixels in each direction
-     * sets focusable false - there's no blue border when clicking the button
+     * The constructor for BottomButton.
+     * It sets the margin to be 10 pixels in each direction.
+     * It sets focusable false - there's no blue border when clicking the button.
      * @param text - text of the button
      */
     public BottomButton(String text)
@@ -28,7 +29,7 @@ public class BottomButton extends JButton
     }
 
     /**
-     * getter method for the Button's text
+     * Getter method for the Button's text
      * @return text - the button's text
      */
     public String getText()

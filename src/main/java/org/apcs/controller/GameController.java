@@ -5,10 +5,7 @@ import org.apcs.view.*;
 
 
 /**
- * This class has getter methods for model, view, and every ActionListener for the buttons.
- * This is meant to be called by methods in the model and view packages, and to allow the ActionListeners to access
- * model and view classes.
- *
+ * This is the controller of the game. It holds GameModel and GameView, and creates action listeners, which updates the game's data and view.
  * @author Bolang Zhu
  */
 public class GameController
@@ -47,15 +44,14 @@ public class GameController
     }
 
     /**
-     * sets current model to new GameModel
-     * called whenever a new game is rendered.
+     * Sets gameModel.
+     * It is called whenever a new game is started.
      * @param newModel - model to set
      */
     public void setModel(GameModel newModel)
     {
         model = newModel;
     }
-
 
     /**
      * This method initializes the ActionListener for a Word Button.
@@ -67,8 +63,8 @@ public class GameController
     }
 
     /**
-     * creates a new action listener for the submit button
-     * @return ActionListener - new action listener
+     * It creates a new action listener for the submit button.
+     * @return ActionListener - the new action listener
      */
     public SubmitButtonActionListener getSubmitButtonActionListener()
     {
@@ -76,8 +72,8 @@ public class GameController
     }
 
     /**
-     * creates a new action listener for the shuffle button
-     * @return ActionListener - new action listener
+     * It creates a new action listener for the shuffle button.
+     * @return ActionListener - the new action listener
      */
     public ShuffleActionListener getShuffleActionListener()
     {
@@ -85,8 +81,8 @@ public class GameController
     }
 
     /**
-     * creates a new action listener for the deselect all button
-     * @return ActionListener - new ActionListener
+     * It creates a new action listener for the deselect all button.
+     * @return ActionListener - the new ActionListener
      */
     public DeselectAllActionListener getDeselectAllActionListener()
     {
@@ -94,8 +90,8 @@ public class GameController
     }
 
     /**
-     * creates a new action listener for the new game button
-     * @return ActionListener - new ActionListener
+     * It creates a new action listener for the new game button.
+     * @return ActionListener - the new ActionListener
      */
     public NewGameActionListener getNewGameActionListener()
     {

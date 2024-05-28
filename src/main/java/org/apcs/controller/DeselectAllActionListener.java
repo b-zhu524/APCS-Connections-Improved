@@ -6,15 +6,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * represents the ActionListener for the DeselectAll button
+ * An implementation of ActonListener. When the DeselectAll button is clicked, it clears the user's selection, and updates GameBoard accordingly.
  * @author Bolang Zhu
  */
 public class DeselectAllActionListener implements ActionListener
 {
+    /**
+     * The controller for the game.
+     */
     GameController controller;
 
     /**
-     * constructor for DeselectAllActionListener
+     * Constructor for DeselectAllActionListener
      * @param controller - GameController for the game
      */
     public DeselectAllActionListener(GameController controller)
@@ -24,10 +27,9 @@ public class DeselectAllActionListener implements ActionListener
 
 
     /**
-     * called when the DeselectAll button is clicked
-     * goes through every button in GameBoard and un-clicks every one
-     * updates clicked set in GameStatus
-     * makes the Submit and DeselectButton button unavailable after clicked
+     * This is the implementation of ActionListener's actionPerformed Method. It is called when the DeselectAll button is clicked.
+     * It clears the user's selected words in GameModel, and call GameBoard's deselect all method to update the GUI.
+     * It also disables Submit and DeselectButton button.
      * @param e - the event from DeselectAll to be processed
      */
     @Override

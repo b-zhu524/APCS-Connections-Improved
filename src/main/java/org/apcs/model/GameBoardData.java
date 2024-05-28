@@ -3,18 +3,17 @@ import java.util.*;
 
 
 /**
- * represents the data for the GameBoard. the GameBoard part of view uses this to render the board
+ * Represents the data for the GameBoard. The GameBoard uses this class to re-render.
  */
 public class GameBoardData
 {
-    private final int COL = 4;
     private int numRowsSolved;
     private List<Category> solvedCategories;    // solved categories
     private List<String> remainingWords;   // unsolved words
 
     /**
-     * constructor for GameBoardData
-     * initializes solvedCategories and remainingWords
+     * Constructor for GameBoardData.
+     * It initializes the fields solvedCategories and remainingWords.
      * @param categories - the list of the categories that are solved
      * @param words - the list of words that are not solved. these do not include the words from the solved categories
      */
@@ -25,8 +24,8 @@ public class GameBoardData
     }
 
     /**
-     * shuffles the remaining words
-     * called when initializing a new game or when the "shuffle" button is pressed
+     * It shuffles the remaining words.
+     * It is called when initializing a new game or when the "shuffle" button is pressed.
      */
     public void shuffleRemainingWords()
     {
@@ -35,7 +34,7 @@ public class GameBoardData
 
 
     /**
-     * adds a category to solvedCategories
+     * It adds a category to solvedCategories
      * @param cat - the category to add
      */
     public void addSolvedCategory(Category cat)
@@ -44,7 +43,7 @@ public class GameBoardData
     }
 
     /**
-     * getter method for remainingWords
+     * Getter method for remainingWords.
      * @return remainingWords - the words that are not solved yet
      */
     public List<String> getRemainingWords()
@@ -53,7 +52,7 @@ public class GameBoardData
     }
 
     /**
-     * getter method for solvedCategories
+     * Getter method for solvedCategories.
      * @return solvedCategories - the list of solved categories
      */
     public List<Category> getSolvedCategories()
@@ -62,8 +61,8 @@ public class GameBoardData
     }
 
     /**
-     * gets the number of rows, or the number of remaining categories
-     * throws a RuntimeException if the number of remaining words is not divisible by 4
+     * Gets the number of rows.
+     * It throws a RuntimeException if the number of remaining words is not divisible by 4.
      * @return the number of remaining rows
      */
     public int numRows()
@@ -77,7 +76,7 @@ public class GameBoardData
     }
 
     /**
-     * gets the number of solved rows
+     * Gets the number of solved rows.
      * @return numRowsSolved - the number of rows solved
      */
     public int getNumRowsSolved()
@@ -86,16 +85,17 @@ public class GameBoardData
     }
 
     /**
-     * increases the number of rows solved by 1
-     * adds toAdd to solvedCategories
-     * removes the words in toAdd from remainingWords
-     * @param toAdd - the category to add
+     * It represents solving a category in model.
+     * It increases the number of rows solved by 1.
+     * It adds toSolve to solvedCategories.
+     * It removes the words in toSolve from remainingWords.
+     * @param toSolve - the category to add
      */
-    public void solveCategory(Category toAdd)
+    public void solveCategory(Category toSolve)
     {
         numRowsSolved++;
-        solvedCategories.add(toAdd);
-        String[] words = toAdd.getWords();
+        solvedCategories.add(toSolve);
+        String[] words = toSolve.getWords();
 
         List<String> newWords = new ArrayList<>();
         for ( String word : remainingWords )

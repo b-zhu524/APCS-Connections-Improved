@@ -5,7 +5,10 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 
 /**
- * Represents the buttons layout using a JPanel for the bottom panel (container for submit, shuffle, deselect all)
+ * Extension of JPanel. Contains getter methods for the buttons shuffle, deselect all, submit, and new game.
+ * It is formatted so that buttons can be next to each other.
+ * It is also formatted so that there are two modes: one where the panel contains shuffle, deselect all, and submit,
+ * and another where the panel contains only the new game button.
  * @author Bolang Zhu
  */
 public class BottomPanel extends JPanel
@@ -16,9 +19,9 @@ public class BottomPanel extends JPanel
     private final BottomButton newGame;
 
     /**
-     * Initializes the buttons shuffle, deselectAll, submit, and newGame
-     * Initially makes submit and deselectAll unavailable and hides new game
-     * Adds a BoxLayout to the panel
+     * Initializes the buttons shuffle, deselectAll, submit, and newGame.
+     * Initially makes submit and deselectAll unavailable and hides the new game button.
+     * Adds a BoxLayout to the panel.
      */
     public BottomPanel()
     {
@@ -36,8 +39,6 @@ public class BottomPanel extends JPanel
 
         addAllButtons(false);
     }
-
-    // GETTERS
 
     /**
      * Getter method for the BottomButton shuffle
@@ -68,9 +69,9 @@ public class BottomPanel extends JPanel
 
 
     /**
-     * Removes every button in bottom panel and adds buttons accordingly
-     * if it is the end of the game, the only thing added is the newGame button
-     * otherwise, shuffle, deselect all, and submit are added to the BottomPanel
+     * Removes every button in bottom panel and adds buttons accordingly.
+     * If it is the end of the game, the only thing added is the newGame button.
+     * Otherwise, shuffle, deselect all, and submit are added to the BottomPanel.
      * @param endGame - if it is the end of the game, or if the player can continue playing
      */
     public void addAllButtons(boolean endGame)

@@ -37,13 +37,20 @@ public class MistakesPanel extends JPanel
     public void render()
     {
         this.removeAll();
-       StringBuilder blackDot = new StringBuilder("<html><style>p {font-size: 15}</style><body><p>Mistakes remaining: ");
+        StringBuilder displayText = new StringBuilder("<html><style>p {font-size: 15}</style><body><p>Mistakes remaining: ");
 
-        String bullet = "&#x25cf;"; // small - find bigger black circle
-        blackDot.append(bullet.repeat(buttonCnt));
+        if (buttonCnt == 0)
+        {
+            displayText.append("0");
+        }
+        else
+        {
+            String bullet = "&#x25cf;"; // small - find bigger black circle
+            displayText.append(bullet.repeat(buttonCnt));
+        }
 
-        blackDot.append("</p></body></html>");
-        JLabel dotLabel = new JLabel(blackDot.toString(), SwingConstants.CENTER);
+        displayText.append("</p></body></html>");
+        JLabel dotLabel = new JLabel(displayText.toString(), SwingConstants.CENTER);
         this.add(dotLabel);
     }
 }

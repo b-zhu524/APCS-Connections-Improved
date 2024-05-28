@@ -7,15 +7,19 @@ import java.awt.event.ActionListener;
 import java.util.*;
 
 /**
- * represents the action listener for the word buttons
+ * An implementation of ActionListener.
+ * The action listener is used by WordButton objects.
  * @author Bolang Zhu
  */
 public class WordButtonActionListener implements ActionListener
 {
+    /**
+     * The controller for the game.
+     */
     GameController controller;
 
     /**
-     * Constructor for WordButtonActionListener. Allows the class to access Model and View
+     * Constructor for WordButtonActionListener.
      * @param gameController - the controller for the project.
      */
     public WordButtonActionListener(GameController gameController)
@@ -23,11 +27,14 @@ public class WordButtonActionListener implements ActionListener
         controller = gameController;
     }
 
-
     /**
-     * Implementation of ActionPerformed abstract class from ActionListener.
-     * Selects and de-selects buttons based on the clicked set from GameStatus.
-     * updates the clicked set in the game's GameStatus
+     * Implementation of ActionPerformed method from ActionListener.
+     * It is called when a WordButton object is pressed.
+     * It checks if the button is already clicked.
+     * If the button is already clicked, remove the word from clicked, unclick the word in view, disable the submit button,
+     * and disable the deselect all button if there are no more clicked words.
+     * Otherwise, if the number of clicked buttons is less than four, click the word in model, update view accordingly,
+     * enable the deselect all button, and enable the submit button if the number of clicked words is four.
      * @param actionEvent the event to be processed
      */
     @Override

@@ -3,8 +3,8 @@ package org.apcs.model;
 import java.util.*;
 
 /**
- * This class accesses all the data in the game.
- * It is inputted to render parts of the GUI and is updated by the controller.
+ * This is the model for the game. It holds GameStatus and GameSolution,
+ * which give information to render the GUI and give the controller information.
  * @author Bolang Zhu
  */
 public class GameModel
@@ -13,8 +13,8 @@ public class GameModel
     private GameSolution solution;
 
     /**
-     * constructor for GameModel
-     * initializes solution and status
+     * Constructor for GameModel
+     * Initializes solution and status
      * @param solution - the GameSolution for the game
      */
     public GameModel(GameSolution solution)
@@ -28,7 +28,7 @@ public class GameModel
     }
 
     /**
-     * getter method for the game's solution
+     * Getter method for the game's solution
      * @return solution - the GameSolution for the game
      */
     public GameSolution getSolution()
@@ -37,7 +37,7 @@ public class GameModel
     }
 
     /**
-     * getter method for GameStatus
+     * Getter method for GameStatus
      * @return status - the GameStatus for the game
      */
     public GameStatus getGameStatus()

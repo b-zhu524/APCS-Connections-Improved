@@ -2,10 +2,9 @@ package org.apcs.view;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Timer;
 
 /**
- * represents the label that displays messages
+ * Extension of JLabel. Displays messages according to given conditions.
  */
 public class MessageLabel extends JLabel
 {

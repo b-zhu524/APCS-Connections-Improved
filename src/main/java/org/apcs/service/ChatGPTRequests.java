@@ -10,14 +10,19 @@ import dev.langchain4j.model.openai.OpenAiChatModel;
 import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_3_5_TURBO;
 
 /**
- * contains methods to get requests using LangChain
+ * This class generates responses from ChatGPT and LangChain for information about the game.
+ * This allows it to generate four categories of four words of varying difficulties.
+ * This information is used to create a new model for the game.
+ * @author Audrey Zhu
  */
 public class ChatGPTRequests
 {
     /**
-     * makes a new ChatGPT model and gives inputs of varying difficulties
-     * outputs in the form of GameSolutions, which is placed into model
-     * called whenever a new game is rendered
+     * This is called when a new game is started.
+     * It initializes a new ChatGPT model.
+     * It generates four different categories each of varying difficulty.
+     * For each of the four categories, it generates four words.
+     * Using this information, it creates a solution key and a model.
      * @return model - a GameModel with GameSolution data from ChatGPT
      */
     public GameModel getGameModel()

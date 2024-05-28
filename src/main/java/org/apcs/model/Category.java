@@ -2,7 +2,7 @@ package org.apcs.model;
 
 
 /**
- * represents a category of words
+ * Represents a category of words.
  */
 public class Category
 {
@@ -11,7 +11,7 @@ public class Category
     private int difficulty;
 
     /**
-     * constructor for a Category class.
+     * Constructor for a Category class.
      * @param words - four words in the category
      * @param catName - name of the category
      * @param difficulty - integer between 0 - 3 inclusive (0 being easy, and 3 being hardest)
@@ -23,9 +23,8 @@ public class Category
         this.difficulty = difficulty;
     }
 
-
     /**
-     * getter method for memberWords
+     * Getter method for memberWords.
      * @return memberWords - words in the category
      */
     public String[] getWords()
@@ -35,7 +34,7 @@ public class Category
 
 
     /**
-     * getter method for catName
+     * Getter method for catName.
      * @return catName - the name of the category
      */
     public String getCatName()
@@ -45,7 +44,7 @@ public class Category
 
 
     /**
-     * gives the words to output to a GameLabel
+     * Gives the words to output to a GameLabel.
      * @return member words in string format "{word1}, {word2}, {word3}, {word4}"
      */
     public String getCatInfo()
@@ -68,7 +67,7 @@ public class Category
 
 
     /**
-     * getter method for attribute, "difficulty"
+     * Getter method for attribute, "difficulty".
      * @return - difficulty
      */
     public int getDifficulty()

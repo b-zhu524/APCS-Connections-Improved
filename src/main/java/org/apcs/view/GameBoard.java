@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.*;
 
 /**
- * Represents the 4x4 container grid of WordButtons.
+ * Extension of JPanel. Represents the 4x4 container grid of WordButtons.
  * Contains four rows of JPanels (GameRows) that each have four words in them.
  * @author Bolang Zhu
  */
@@ -19,8 +19,8 @@ public class GameBoard extends JPanel
     private List<WordButton> wordButtonList;
 
     /**
-     * constructor for GameBoard
-     * sets the size of the grid and initializes wordButtonList to an empty list
+     * Constructor for GameBoard.
+     * It sets the size of the grid and initializes wordButtonList to an empty list.
      */
     public GameBoard()
     {
@@ -31,7 +31,7 @@ public class GameBoard extends JPanel
     }
 
     /**
-     * getter method for wordButtonList
+     * Getter method for wordButtonList
      * @return wordButtonList - list of buttons
      */
     public List<WordButton> getWordButtonList()
@@ -40,7 +40,7 @@ public class GameBoard extends JPanel
     }
 
     /**
-     * deselects all buttons in wordButtonList
+     * Deselects all buttons in wordButtonList
      */
     public void deselectAll()
     {
@@ -51,7 +51,7 @@ public class GameBoard extends JPanel
     }
 
     /**
-     * adds a GameRow to the layout
+     * Adds a GameRow to the layout
      * @param row - GameRow to add to the layout
      */
     public void addRow(GameRow row)
@@ -60,8 +60,8 @@ public class GameBoard extends JPanel
     }
 
     /**
-     * adds a label to the layout
-     * called whenever a category is solved
+     * Adds a label to the layout.
+     * It is called whenever a category is solved.
      * @param label - GameLabel to add
      */
     public void addLabel(GameLabel label)
@@ -70,7 +70,7 @@ public class GameBoard extends JPanel
     }
 
     /**
-     * adds ActionListeners for WordButton
+     * Adds ActionListeners for WordButton.
      * @param listener - ActionListener for WordButton
      */
     public void addWordButtonActionListeners(ActionListener listener)
@@ -82,9 +82,12 @@ public class GameBoard extends JPanel
     }
 
     /**
-     * clears the board and re-makes the board based on GameBoard data in status
-     * it starts with GameLabels of solved categories, then GameRows of unsolved words
-     * called whenever a row is solved or the board is shuffled
+     * Clears the board and re-renders the board based on GameBoard data in status.
+     * It starts with GameLabels of solved categories, and adds them to the top rows.
+     * Then it adds all the remaining words in the remaining rows.
+     * This is called whenever a board needs to be re-rendered (row is solved or the board is shuffled).
+     * It adds a Vertical Strut of height 10 after every row.
+     * It also repaints and revalidates the GameBoard.
      * @param status - the game's GameStatus
      */
     public void updateBoard(GameStatus status)

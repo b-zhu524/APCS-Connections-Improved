@@ -4,8 +4,8 @@ package org.apcs.view;
 import javax.swing.*;
 
 /**
- * Represents panel to include the GameBoard, MistakesPanel, and BottomPanel.
- * It is placed inside a GameFrame
+ * Extension of JPanel. Includes the GameBoard, MistakesPanel, and BottomPanel on top of one another.
+ * It is placed inside a GameFrame.
  */
 public class GamePanel extends JPanel
 {

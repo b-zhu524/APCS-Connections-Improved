@@ -16,7 +16,10 @@ public class GameStatus
 
 
     /**
-     *
+     * The constructor for Status.
+     * It initializes model and clickedWords.
+     * It initializes numMistakes as 0, turnsRecord as a new ArrayList,
+     * and gameBoardData as an empty ArrayList and all 16 words.
      * @param model - the game's GameModel
      * @param words - the 16 words for the game
      */
@@ -31,7 +34,7 @@ public class GameStatus
     }
 
     /**
-     * getter method for GameBoardData
+     * Getter method for GameBoardData
      * @return gameBoardData - contains the game's information for the GameBoard to display
      */
    public GameBoardData getGameBoardData()
@@ -40,7 +43,7 @@ public class GameStatus
     }
 
     /**
-     * getter method for clickedWords
+     * Getter method for clickedWords
      * @return clickedWords - the set of the words that are currently clicked
      */
     public Set<String> getClickedWords()
@@ -50,7 +53,7 @@ public class GameStatus
 
 
     /**
-     * getter method for numMistakes
+     * Getter method for numMistakes
      * @return numMistakes - the current number of mistakes in the game
      */
     public int getNumMistakes()
@@ -59,10 +62,8 @@ public class GameStatus
     }
 
     /**
-     * getter method for mistakesRecord
+     * Getter method for turnsRecord
      * @return turnsRecord - the arraylist for all submissions in a game by four category classes in each entry
-     * each category represents the category a word belongs to
-     * meant to be used at the end of the game so the user can ses their turns
      */
     public ArrayList<ArrayList<Category>> getTurnsRecord()
     {
@@ -87,8 +88,8 @@ public class GameStatus
 
 
     /**
-     * called when submit is clicked
-     * goes through clicked words and adds an entry to TurnsRecord
+     * It goes through clicked words and adds an entry to TurnsRecord.
+     * Called when submit is clicked
      */
     public void updateTurn()
     {
@@ -101,7 +102,7 @@ public class GameStatus
     }
 
     /**
-     * increases the number of mistakes by one
+     * It increases the number of mistakes by one.
      */
     public void updateMistakes()
     {
@@ -110,7 +111,7 @@ public class GameStatus
 
 
     /**
-     * adds a clicked word
+     * It adds a clicked word.
      * @param word - word to be added
      */
     public void addClicked(String word)
@@ -119,7 +120,7 @@ public class GameStatus
     }
 
     /**
-     * removes a clicked word. represents unclicking a word
+     * It removes a clicked word. It represents unclicking a word.
      * @param word - word to be removed
      */
     public void removeClicked(String word)
@@ -128,7 +129,7 @@ public class GameStatus
     }
 
     /**
-     * removes (unclicks) all clicked words
+     * It unclicks all clicked words
      */
     public void removeAllClicked()
     {

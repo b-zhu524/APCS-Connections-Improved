@@ -6,14 +6,18 @@ import javax.swing.JButton;
 
 
 /**
- * Contains the settings and methods a word-button (one in the 4x4 grid) would use.
+ * Extension of JButton. This class formats the button with more spacing,
+ * and changes its background and font color when clicked and unclicked
  * @author Bolang Zhu
  */
 public class WordButton extends JButton
 {
     /**
      * Constructor for the WordButton class.
-     * Initializes the text of the button and attributes to change its color.
+     * It initializes the text of the button.
+     * It sets border painted false.
+     * It sets content area filled false.
+     * It sets focusable false.
      * The font is set black and the color is set unclicked.
      * @param text - the text of the WordButton
      */
@@ -30,7 +34,7 @@ public class WordButton extends JButton
     }
 
     /**
-     * Changes the color and font of the button to look clicked
+     * It changes the color of the button to clicked and changes the font of the button white.
      */
     public void clickButton()
     {
@@ -39,7 +43,7 @@ public class WordButton extends JButton
     }
 
     /**
-     * Changes the color and font of the button to look unclicked.
+     * Changes the color of the button to unclicked and changes the font of the button to black.
      */
     public void unclickButton()
     {
@@ -72,7 +76,8 @@ public class WordButton extends JButton
 
     /**
      * It paints the inside of the button, and makes the button rounded.
-     * It is called when method setBackground() is called
+     * It is called when method setBackground() is called.
+     *
      * @param g the <code>Graphics</code> object to protect
      */
     @Override

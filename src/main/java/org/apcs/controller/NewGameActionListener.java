@@ -8,16 +8,20 @@ import org.apcs.service.*;
 
 
 /**
- * ActionListener for NewGame button
+ * An implementation of ActonListener. When the game is over, where the user loses or wins, a NewButton appears.
+ * Clicking it will generate a new game with new words.
  * @author Bolang Zhu
  */
 public class NewGameActionListener implements ActionListener
 {
+    /**
+     * The controller for the game.
+     */
     GameController controller;
 
     /**
      * Constructor for the ActionListener
-     * @param controller - GameController for the game
+     * @param controller - the GameController for the game
      */
     public NewGameActionListener(GameController controller)
     {
@@ -25,11 +29,13 @@ public class NewGameActionListener implements ActionListener
     }
 
     /**
-     * called whenever NewGame button is clicked
-     * calls ChatGPTRequests to get a new GameModel
-     * Re-Renders the GUI, including GameBoard and mistakes
-     * removes itself from the BottomPanel and adds submit, deselectall, and shuffle back
-     * @param e - the event from NewGame button to be processed
+     * This is the implementation of ActionListener's actionPerformed method.
+     * It is called whenever NewGame button is clicked.
+     * It calls ChatGPTRequests to generate a new GameModel.
+     * It re-renders the GUI's GameBoard and mistakes.
+     * It removes itself from the BottomPanel and adds submit, de-selectall, and shuffle back.
+     * It adds action listeners for every button by calling controller's methods.
+     * @param e - the event from NewGame button to be processed.
      */
     @Override
     public void actionPerformed(ActionEvent e)

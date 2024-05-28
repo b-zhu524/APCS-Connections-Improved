@@ -8,8 +8,8 @@ import java.util.*;
 
 
 /**
- * Main view class.
- * It interacts with Main, GameModel, and GameController
+ * This is the view, or the GUI for the game. It initializes the GUI by layering each Swing component on top of one another,
+ * and contains methods to add action listeners to buttons.
  * @author Bolang Zhu
  */
 public class GameView
@@ -28,7 +28,7 @@ public class GameView
     /**
      * Constructor of GameView.
      * Initializes status from model.
-     * Then calls initGUI()
+     * Then calls initGUI().
      * @param model - the game's GameModel
      */
     public GameView(GameModel model)
@@ -41,7 +41,10 @@ public class GameView
     }
 
     /**
-     * Initializes the GUI. Adds each component layered into a GameFrame
+     * Initializes the GUI. Adds each component layered into a GameFrame.
+     * A GamePanel is added on a GameFrame.
+     * A GameBoard, MistakesPanel, and BottomPanel are added on the GamePanel.
+     * The GameFrame is set visible.
      */
     private void initGUI()
     {
@@ -74,7 +77,7 @@ public class GameView
     }
 
     /**
-     * adds the game's ActionListener to WordButtons
+     * Adds the game's ActionListener to WordButtons
      * @param listener - ActionListener for WordButton
      */
     public void addWordButtonActionListener(ActionListener listener)
@@ -84,7 +87,7 @@ public class GameView
 
 
     /**
-     * adds the game's ActionListener to DeselectAll
+     * Adds the game's ActionListener to DeselectAll
      * @param listener - ActionListener for DeselectAll button
      */
     public void addDeselectAllActionListener(ActionListener listener)
@@ -93,7 +96,7 @@ public class GameView
     }
 
     /**
-     * adds the game's ActionListener to Shuffle button
+     * Adds the game's ActionListener to Shuffle button
      * @param listener - ActionListener for Shuffle button
      */
     public void addShuffleActionListener(ActionListener listener)
@@ -102,7 +105,7 @@ public class GameView
     }
 
     /**
-     * adds the game's ActionListener to Submit button
+     * Adds the game's ActionListener to Submit button
      * @param listener - ActionListener for Submit button
      */
     public void addSubmitActionListener(ActionListener listener)
@@ -111,7 +114,7 @@ public class GameView
     }
 
     /**
-     * adds the game's ActionListener for NewGame button
+     * Adds the game's ActionListener for NewGame button
      * @param listener - ActionListener for the NewGame button
      */
     public void addNewGameActionListener(ActionListener listener)
@@ -120,7 +123,7 @@ public class GameView
     }
 
     /**
-     * getter method for GameFrame
+     * Getter method for GameFrame
      * @return frame - the game's GameFrame
      */
     public GameFrame getGameFrame()
@@ -129,7 +132,7 @@ public class GameView
     }
 
     /**
-     * getter method for GamePanel
+     * Getter method for GamePanel
      * @return panel - the game's GamePanel
      */
     public GamePanel getGamePanel()
@@ -138,7 +141,7 @@ public class GameView
     }
 
     /**
-     * getter method for the game's GameBoard
+     * Getter method for the game's GameBoard
      * @return board - the GameBoard for the game
      */
     public GameBoard getGameBoard()
@@ -147,7 +150,7 @@ public class GameView
     }
 
     /**
-     * getter method for the game's MessageLabel
+     * Getter method for the game's MessageLabel
      * @return label - the MessageLabel for the game
      */
     public MessageLabel getMessageLabel()
@@ -156,7 +159,7 @@ public class GameView
     }
 
     /**
-     * getter method for the game's BottomPanel.
+     * Getter method for the game's BottomPanel.
      * @return bottom - the BottomPanel for the game
      */
     public BottomPanel getBottomPanel()
@@ -165,7 +168,7 @@ public class GameView
     }
 
     /**
-     * getter method for the game's MistakesPanel
+     * Getter method for the game's MistakesPanel
      * @return mistakes - the MistakesPanel for the game
      */
     public MistakesPanel getMistakesPanel()
