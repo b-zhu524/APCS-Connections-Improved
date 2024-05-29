@@ -32,7 +32,7 @@ public class ChatGPTRequests
                 .temperature(0.9)   // decides the "randomness" of the output
                 .build();
 
-        String[] levels = new String[]{"hard", "very hard", "extremely hard", "almost impossible"};
+        String[] levels = new String[]{"straightforward", "very hard", "extremely hard", "almost impossible"};
 
         String text = "Give me four categories of English words. The answer should be a comma separated list." +
                 "Example: colors, fruits, synonyms of 'pay', planets. Make it very random and hard to guess.";
