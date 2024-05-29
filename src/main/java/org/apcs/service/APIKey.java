@@ -3,7 +3,6 @@ package org.apcs.service;
 
 /**
  * Contains the API key
- * @author Audrey Zhu
  */
 public class APIKey
 {

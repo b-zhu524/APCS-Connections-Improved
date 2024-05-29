@@ -13,7 +13,6 @@ import static dev.langchain4j.model.openai.OpenAiChatModelName.GPT_3_5_TURBO;
  * This class generates responses from ChatGPT and LangChain for information about the game.
  * This allows it to generate four categories of four words of varying difficulties.
  * This information is used to create a new model for the game.
- * @author Audrey Zhu
  */
 public class ChatGPTRequests
 {

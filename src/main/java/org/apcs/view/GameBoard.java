@@ -16,7 +16,7 @@ import java.util.*;
  */
 public class GameBoard extends JPanel
 {
-    private List<WordButton> wordButtonList;
+    private Set<WordButton> wordButtonList;
 
     /**
      * Constructor for GameBoard.
@@ -27,14 +27,14 @@ public class GameBoard extends JPanel
         super.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         this.setBorder(new EmptyBorder(40, 20, 100, 20));
-        wordButtonList = new ArrayList<>();
+        wordButtonList = new HashSet<>();
     }
 
     /**
      * Getter method for wordButtonList
      * @return wordButtonList - list of buttons
      */
-    public List<WordButton> getWordButtonList()
+    public Set<WordButton> getWordButtonList()
     {
         return wordButtonList;
     }
@@ -94,7 +94,7 @@ public class GameBoard extends JPanel
     {
         // clears the board
         this.removeAll();
-        wordButtonList = new ArrayList<>();
+        wordButtonList = new HashSet<>();
 
         int rows = status.getGameBoardData().numRows();
         List<Category> categories = status.getGameBoardData().getSolvedCategories();

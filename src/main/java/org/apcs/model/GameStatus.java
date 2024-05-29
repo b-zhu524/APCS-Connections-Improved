@@ -4,7 +4,7 @@ package org.apcs.model;
 import java.util.*;
 
 /**
- * represents the information that changes throughout each game
+ * Represents the information that changes throughout each game
  */
 public class GameStatus
 {

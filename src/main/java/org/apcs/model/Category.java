@@ -1,5 +1,6 @@
 package org.apcs.model;
 
+import java.util.*;
 
 /**
  * Represents a category of words.
@@ -12,6 +13,7 @@ public class Category
 
     /**
      * Constructor for a Category class.
+     * It initially sorts the member words.
      * @param words - four words in the category
      * @param catName - name of the category
      * @param difficulty - integer between 0 - 3 inclusive (0 being easy, and 3 being hardest)
@@ -19,6 +21,7 @@ public class Category
     public Category(String[] words, String catName, int difficulty)
     {
         memberWords = words;
+        Arrays.sort(memberWords);
         this.catName = catName;
         this.difficulty = difficulty;
     }

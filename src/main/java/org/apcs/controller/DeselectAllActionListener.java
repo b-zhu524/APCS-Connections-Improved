@@ -14,7 +14,7 @@ public class DeselectAllActionListener implements ActionListener
     /**
      * The controller for the game.
      */
-    GameController controller;
+    private GameController controller;
 
     /**
      * Constructor for DeselectAllActionListener
